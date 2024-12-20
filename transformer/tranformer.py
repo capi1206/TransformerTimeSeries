@@ -1,7 +1,7 @@
 import torch.nn as nn
 
 
-from .units import ClassificationHead, Encoder, PositionalEncoding
+from .units import ClassificationHead, Encoder
 #from .encoders import PositionalEncoding, Encoder
 
 class Transformer(nn.Module):
@@ -16,7 +16,6 @@ class Transformer(nn.Module):
             out_features=d_model
             )
 
-        #self.pos_emb = PositionalEncoding( max_seq_len=max_len,batch_first=False, d_model=d_model, dropout=0.1) #try different values of drupout?
         self.encoder = Encoder(d_model=d_model,
                                n_head=n_head,
                                ffn_hidden=ffn_hidden,
